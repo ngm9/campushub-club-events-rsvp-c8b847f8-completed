@@ -8,15 +8,15 @@ export default function EventCard({ event, onRsvp }) {
     <div className="event-card">
       <h2>{event.title}</h2>
       <p className="event-meta">
-        {event.club} &middot; {event.date}
+        {event.club} {event.date}
       </p>
       {isFull ? (
         <p className="seats-left">Full</p>
       ) : (
-        <p className="seats-left">{seatsLeft} seats left</p>
+        <p className="seats-left">{seatsLeft} seats left: `${seatsLeft} seats left`</p>
       )}
       <button onClick={() => onRsvp(event.id)} disabled={isFull}>
-        RSVP
+        {isFull?'Full' : 'RSVP'}
       </button>
     </div>
   );
